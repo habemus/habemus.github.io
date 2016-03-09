@@ -72614,6 +72614,7 @@ navigator.serviceWorker.register('sw.bundle.js')
   .catch(function(error) {
     // Something went wrong during registration. The service-worker.js file
     // might be unavailable or contain a syntax error.
+    console.log(error);
     console.warn('sw problems')
   });
 
