@@ -1,23 +1,74 @@
----
-layout: default
----
+<html>
+<head>
+  <title></title>
 
-<div class="home">
+  <link rel="stylesheet" type="text/css" href="index.bundle.css">
+  <style type="text/css" media="screen">
+    body {
+      margin: 0;
+    }
 
-  <h1 class="page-heading">Posts</h1>
+    #control {
+      position: fixed;
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      z-index: 100;
+      bottom: 0;
+      left: 0;
+    }
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    #tree-container {
+      position: fixed;
 
-</div>
+      top: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 15%;
+
+      overflow: scroll;
+    }
+    #editor {
+      position: fixed;
+      left: 15%;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+    }
+
+    #iframe {
+      position: fixed;
+      left: 55%;
+      top: 0;
+
+      width: 45%;
+      height: 100%;
+      border: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="editor"></div>
+  <iframe id="iframe"></iframe>
+
+  <div id="control">
+    <input id="file" type="file"></input>
+    <button id="download">download</button>
+    <button id="new">criar arquivo</button>
+  </div>
+
+
+  <div id="tree-container"></div>
+
+  <!-- ace-editor -->
+  <script src="bower_components/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+  <!-- file saver -->
+  <script src="bower_components/FileSaver.js/FileSaver.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="index.bundle.js"></script>
+
+</body>
+</html>
