@@ -72528,15 +72528,22 @@ fileInput.addEventListener('change', function () {
   reader.onload = function () {
     var contents = reader.result;
 
-    var zip = new JSZip();
+    try {
 
-    zip.load(contents);
+      var zip = new JSZip();
+      zip.load(contents);
 
-    AVAILABLE_FILES = zip;
+      AVAILABLE_FILES = zip;
+    } catch (e) {
+
+      AVAILABLE_FILES = new JSZip();
+
+      AVAILABLE_FILES.file('index.html', contents);
+    }
+
 
     // update the file browser
     fileBrowser.directory('/', readdir(''));
-
     // open a file
     __openFile('index.html');
 
