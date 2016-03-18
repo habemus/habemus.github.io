@@ -471,9 +471,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </iron-selector>
 
 
-              <div class="project" on-tap="uiCreateProject">criar novo projeto</div>
+              <div class="project" on-tap="uiCreateProject">
+                <iron-icon icon="icons:add"></iron-icon>
+                criar novo projeto</div>
               <div class="project">
-                fazer upload projeto .zip
+                <iron-icon icon="icons:file-upload"></iron-icon>
+                upload projeto .zip
                 <input type="file" on-change="uiCreateProjectFromZip" class="hidden">
               </div>
             </div>
@@ -490,7 +493,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
         <div id="content-right">
           <button type="button" class="header-action" id="action-download">
-            <paper-tooltip for="action-download" offset="4">Faça o download do seu projeto</paper-tooltip>
+            <paper-tooltip for="action-download" offset="" position="left">Faça o download do seu projeto</paper-tooltip>
             <iron-icon icon="icons:file-download"></iron-icon>
             download
           </button>
@@ -503,6 +506,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     
       <div panel="left">
         <div id="file-browser" style="margin-top: 5px;">
+          
+          <div style="margin-left: 20px; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Clique em <b>"projetos"</b> para criar novo projeto, fazer upload ou acessar seus projetos criados</div>
         </div>  
       </div>
       <div panel="center" class="center">
