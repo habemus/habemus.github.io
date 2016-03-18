@@ -80812,6 +80812,8 @@ staticFileApp.get('**/*.html', function (req, res, next) {
 
           res.setHeader('Content-Type', mimeType);
 
+          console.log(domString);
+
           res.send(domString);
         }, function (err) {
 
